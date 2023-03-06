@@ -13,7 +13,7 @@ spring:
         - id: mswallet
           uri: lb://api-wallet
           predicates:
-            - Path=/wallet/*
+            - Path=/wallet/**
         
 info:
   app:
