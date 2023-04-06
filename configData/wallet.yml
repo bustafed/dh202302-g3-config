@@ -43,7 +43,7 @@ eureka:
 resilience4j:
   circuitbreaker:
     instances:
-      catalog-online:
+      customer:
         slidingWindowType: COUNT_BASED
         failureRateThreshold: '40'
         automaticTransitionFromOpenToHalfOpenEnabled: 'true'
@@ -54,7 +54,7 @@ resilience4j:
         waitDurationInOpenState: '15000'
   retry:
     instances:
-      catalog-online:
+      customer:
         maxAttempts: '3'
         waitDuration: '1000'
         retryExceptions[0]: feign.FeignException$InternalServerError
