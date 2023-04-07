@@ -43,7 +43,7 @@ eureka:
 resilience4j:
   circuitbreaker:
     instances:
-      movie:
+      customer:
         slidingWindowType: COUNT_BASED
         failureRateThreshold: '40'
         automaticTransitionFromOpenToHalfOpenEnabled: 'true'
@@ -52,22 +52,11 @@ resilience4j:
         slidingWindowSize: '10'
         permittedNumberOfCallsInHalfOpenState: '3'
         waitDurationInOpenState: '15000'
-      serie:
-        slidingWindowType: COUNT_BASED
-        failureRateThreshold: '40'
-        automaticTransitionFromOpenToHalfOpenEnabled: 'true'
-        allowHealthIndicatorToFail: 'false'
-        registerHealthIndicator: 'true'
-        slidingWindowSize: '10'
-        permittedNumberOfCallsInHalfOpenState: '3'
-        waitDurationInOpenState: '15000'     
+
   retry:
     instances:
-      movie:
+      customer:
         maxAttempts: '3'
         waitDuration: '1000'
         retryExceptions[0]: feign.FeignException$InternalServerError
-      serie:
-        maxAttempts: '3'
-        waitDuration: '1000'
-        retryExceptions[0]: feign.FeignException$InternalServerError
+
